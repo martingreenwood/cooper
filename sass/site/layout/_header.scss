@@ -1,0 +1,20 @@
+/*==============================
+=            HEADER            =
+==============================*/
+
+
+#masthead {
+	background: white;
+	@include rem(padding-bottom, 20px);
+
+	.site-branding {
+		width: 120px;
+		margin: 0 auto;
+		@include rem(padding, 30px 0);
+
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+}

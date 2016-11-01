@@ -1,0 +1,44 @@
+.page-template-landing-page {
+	#content {
+		background-color: #53565a;
+
+		#main {
+
+			#column-intro {
+
+				h2, p {
+					color: white;
+				}
+
+				.columns {
+					.left-column, .right-column {
+						@include media ($large-screen-up) {
+							@include span-columns(6);
+						}
+					}
+				}
+
+			}
+
+			#cards {
+				@include rem(padding-bottom, 80px);
+				@include rem(margin-top, 30px);
+				
+				.card {
+					background-color: white;
+					@include media ($large-screen-up) {
+						@include span-columns(6);
+						@include omega(2n);
+						@include rem(margin-top, 15px);
+						@include rem(margin-bottom, 15px);
+					}
+
+					.category-text {
+						@include rem(padding-top, 10px);
+						@include rem(padding-left, 20px);
+					}
+				}
+			}
+		}
+	}
+}

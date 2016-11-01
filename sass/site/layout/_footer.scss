@@ -1,0 +1,20 @@
+/*==============================
+=            Footer            =
+==============================*/
+
+#colophon {
+	background-color: #e3e3e3;
+	@include rem(margin-top, -8px);
+
+	.site-info {
+		background-color: white;
+		@include rem(padding, 25px 0);
+		text-align: center;
+	}
+}
+
+.page-template-landing-page {
+	#colophon {
+		background-color: #53565a;
+	}
+}

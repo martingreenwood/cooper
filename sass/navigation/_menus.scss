@@ -1,0 +1,152 @@
+.main-navigation {
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+
+	.menu-main-menu-1-container {
+		@include outer-container();
+		@include rem(padding, 0 20px);
+	}
+
+	.menu-item-search {
+		margin-right: 0;
+
+		.menu-search-form {
+			border: 1px solid #ccc;
+			@include rem(padding, 5px 0);
+			box-sizing: border-box;
+		}
+
+		p {
+			margin: 0;
+
+			.fa {
+				display: inline-block;
+				margin: 0px 10px;
+			}
+
+			.text_input {
+				display: inline-block;
+				width: auto;
+				padding: 0;
+				border: 0;
+				margin: 0;
+				min-height: 0;
+				box-shadow: none;
+				outline: 0;
+				text-transform: uppercase;
+				@include rem(font-size, 14px);
+			}
+
+			#searchsubmit {
+				display: none;
+			}
+		}
+	}
+
+	ul {
+		display: none;
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+
+		ul {
+			float: left;
+			position: absolute;
+			@include rem(top, 15px);
+			@include rem(left, -9999px);
+			z-index: 99999;
+
+			ul {
+				@include rem(left, -9999px);
+				top: 0;
+			}
+
+			li {
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+			}
+
+			a {
+				@include rem(width, 200px);
+			}
+
+			:hover > a,
+			.focus > a {
+			}
+
+			a:hover,
+			a.focus {
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+		}
+	}
+	li {
+		float: left;
+		position: relative;
+		@include rem(margin-right, 45.5px);
+		@include rem(line-height, 38px);
+		text-transform: uppercase;
+
+		@include media ($medium-screen-up) {
+
+		}
+
+		&:hover > a,
+		&.focus > a {
+		}
+	}
+	a {
+		display: block;
+		text-decoration: none;
+	}
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
+	}
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@include media ($large-screen-up) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
+	}
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		@include rem(margin, 0 0 15px);
+		overflow: hidden;
+	}
+
+	.nav-previous {
+		float: left;
+		width: 50%;
+	}
+
+	.nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+	}
+}

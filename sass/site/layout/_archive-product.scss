@@ -1,0 +1,42 @@
+.woocommerce .archive {
+
+		#main {
+			margin-top: 0;
+
+			.page-title {
+				@include rem(padding-top, 50px);
+			}
+
+			.page-description {
+				text-align: center;
+
+				p {
+					color: #666;
+				}
+			}
+
+			#filter {
+				background-color: white;
+				text-align: center;
+			}
+
+			#results {
+				@include rem(padding-top, 30px);
+
+				.woocommerce-ordering {
+					float: left;
+				}
+
+				.woocommerce-result-count {
+					float: right;
+				}
+
+				ul.products {
+
+					li.product {
+						background-color: white;
+					}
+				}
+			}
+		}
+}
