@@ -2,7 +2,6 @@
 /**
  * The template for displaying the About page.
  *
- *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package _cooper
@@ -20,7 +19,7 @@ get_header(); ?>
 
 				get_template_part( 'template-parts/content', 'page' );
 
-			endwhile; // End of the loop.
+			endwhile;
 			?>
 		</div>
 
@@ -63,12 +62,9 @@ get_header(); ?>
 			</div>
 		</section>
 
-		<?php 
-		get_template_part( 'partials/social', 'blocks' );
-		?>
+		<?php get_template_part( 'partials/social', 'blocks' ); ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</main>
+	</div>
 
-<?php
-get_footer();
+<?php get_footer();

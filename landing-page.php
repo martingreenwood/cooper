@@ -1,8 +1,6 @@
 <?php
 /**
-Template Name: Landing Page
- * The template for displaying landing pages.
- *
+ * Template Name: Landing Page
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -45,21 +43,21 @@ get_header(); ?>
 								?>
 
 								<div class="card">
+
 									<?php if( $link ): ?>
-										<a href="<?php echo $link; ?>">
+									<a href="<?php echo $link; ?>">
 									<?php endif; ?>
 
 										<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
 										<div class="category-text">
 											<h4><?php echo $title; ?></h4>
 											<?php echo $content; ?>
+										</div>
 
-										<?php if( $link ): ?>
-											</a>
-										<?php endif; ?>
+									<?php if( $link ): ?>
+									</a>
+									<?php endif; ?>
 
-									    
-									    </div>
 								</div>
 
 							<?php endwhile; ?>
@@ -69,8 +67,7 @@ get_header(); ?>
 			</section>
 
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</main>
+	</div>
 
-<?php
-get_footer();
+<?php get_footer();

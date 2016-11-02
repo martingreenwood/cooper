@@ -161,9 +161,7 @@ if ( ! function_exists( 'woocommerce_breadcrumb' ) ) {
 //Short Description on Archive page
 
 function cooper_excerpt_in_product_archives() {
-     
-    the_excerpt();
-     
+	the_excerpt();
 }
 
 /**
