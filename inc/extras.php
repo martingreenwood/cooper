@@ -66,3 +66,88 @@ function add_search_to_wp_menu ( $items, $args ) {
 }
 add_filter('wp_nav_menu_items','add_search_to_wp_menu',10,2);
 
+
+
+/**
+ * List sub cats by name
+ */
+function woocommerce_subcats_from_parentcat_by_NAME($parent_cat_NAME) {
+	$IDbyNAME = get_term_by('name', $parent_cat_NAME, 'product_cat');
+	$product_cat_ID = $IDbyNAME->term_id;
+	$args = array(
+		'hierarchical' => 1,
+		'show_option_none' => '',
+		'hide_empty' => 0,
+		'parent' => $product_cat_ID,
+		'taxonomy' => 'product_cat'
+	);
+	$subcats = get_categories($args);
+	echo '<ul class="wooc_sclist">';
+		foreach ($subcats as $sc) {
+		$link = get_term_link( $sc->slug, $sc->taxonomy );
+		echo '<li><a href="'. $link .'">'.$sc->name.'</a></li>';
+	}
+	echo '</ul>';
+}
+
+function woocommerce_scsubcats_from_parentcat_by_NAME($parent_cat_NAME) {
+	$IDbyNAME = get_term_by('name', $parent_cat_NAME, 'product_cat');
+	$product_cat_ID = $IDbyNAME->term_id;
+	$args = array(
+		'hierarchical' => 1,
+		'show_option_none' => '',
+		'hide_empty' => 0,
+		'parent' => $product_cat_ID,
+		'taxonomy' => 'product_cat'
+	);
+	$subcats = get_categories($args);
+	echo '<ul class="wooc_scsclist">';
+	foreach ($subcats as $sc) {
+		$scargs = array(
+			'hierarchical' => 1,
+			'show_option_none' => '',
+			'hide_empty' => 0,
+			'parent' => $sc->term_id,
+			'taxonomy' => 'product_cat'
+		);
+		$subsubcats = get_categories($scargs);
+		foreach ($subsubcats as $scsc) {
+			$sclink = get_term_link( $scsc->slug, $scsc->taxonomy );
+			echo '<li><a href="'. $sclink .'">'.$scsc->name.'</a></li>';
+		}
+	}
+	echo '</ul>';
+}
+
+function woocommerce_subcats_from_parentcat_by_ID($parent_cat_ID) {
+	$subsubcats = array();
+	$args = array(
+		'hierarchical' => 1,
+		'show_option_none' => '',
+		'hide_empty' => 0,
+		'parent' => $parent_cat_ID,
+		'taxonomy' => 'product_cat'
+	);
+	$subcats = get_categories($args);
+    echo '<ul class="wooc_sclist">';
+	foreach ($subcats as $sc) {
+		$link = get_term_link( $sc->slug, $sc->taxonomy );
+		echo '<li><a href="'. $link .'">'.$sc->name.'</a>';
+		$scargs = array(
+			'hierarchical' => 1,
+			'show_option_none' => '',
+			'hide_empty' => 0,
+			'parent' => $sc->term_id,
+			'taxonomy' => 'product_cat'
+		);
+		$subsubcats = get_categories($scargs);
+		echo '<ul class="children">';
+		foreach ($subsubcats as $scsc) {
+			$sclink = get_term_link( $scsc->slug, $scsc->taxonomy );
+			echo '<li><a href="'. $sclink .'">'.$scsc->name.'</a></li>';
+		}
+		echo '</ul>';
+	}
+	echo '</li>';
+	echo '</ul>';
+}

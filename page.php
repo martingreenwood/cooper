@@ -25,40 +25,40 @@ get_header(); ?>
 
 		<section id="about-studio">
 			<div class="container">
-					<?php if( have_rows('about_sections') ): $counter = 0; ?>
-						<?php while( have_rows('about_sections') ): the_row(); 
+			<?php if( have_rows('about_sections') ): $counter = 0; ?>
+				<?php while( have_rows('about_sections') ): the_row(); 
 
-							// vars
-							$image = get_sub_field('about_image');
-							$content = get_sub_field('about_text');
+					// vars
+					$image = get_sub_field('about_image');
+					$content = get_sub_field('about_text');
 
-							if ($counter++ / 2):
-							?>
+					if ($counter++ / 2):
+					?>
 
-							<div class="about-row">
-									<div class="section-text">
-								    <?php echo $content; ?>
-								    </div>
+					<div class="about-row">
+						<div class="section-text">
+							<div class="table"><div class="cell middle">
+							<?php echo $content; ?>
+							</div></div>
+						</div>
+						<div class="section-image" style="background-image: url(<?php echo $image['url']; ?>)"></div>	
+					</div>
 
-									<div class="section-image"><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" /></div>
-									
-							</div>
+				<?php else: ?>
 
-						<?php else: ?>
+					<div class="about-row odd">
+						<div class="section-image" style="background-image: url(<?php echo $image['url']; ?>)"></div>
+						<div class="section-text">
+							<div class="table"><div class="cell middle">
+							<?php echo $content; ?>
+							</div></div>
+						</div>
+					</div>
 
-							<div class="about-row odd">
+				<?php endif; ?>
 
-									<div class="section-image"><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" /></div>
-									
-									<div class="section-text">
-								    <?php echo $content; ?>
-								    </div>
-							</div>
-
-						<?php endif; ?>
-
-						<?php endwhile; ?>
-					<?php endif; ?>
+				<?php endwhile; ?>
+			<?php endif; ?>
 			</div>
 		</section>
 

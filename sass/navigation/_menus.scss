@@ -1,10 +1,14 @@
+/*===========================
+=            PRI            =
+===========================*/
+
 .main-navigation {
 	clear: both;
 	display: block;
 	float: left;
 	width: 100%;
 
-	.menu-main-menu-1-container {
+	.menu-primary-container {
 		@include outer-container();
 		@include rem(padding, 0 20px);
 	}
@@ -159,105 +163,219 @@
 	}
 }
 
-/*==================================
-=            UBDER MENU            =
-==================================*/
+/*===========================
+=            SUB            =
+===========================*/
 
-.ubermenu {
-	.ubermenu-nav {
-		.ubermenu-column-1-4 {
-			.widget {
-				width: 100%;
-			}
-		}
-	}
-}
+.sub-navigation {
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+	background: #f9f9f9;
+	padding: 10px 0;
 
+	position: absolute;
+	margin-top: 48px;
+	z-index: 9999;
+	left: -9999px;
 
-.ubermenu-main {
-
-	.ubermenu-widgettitle {
-		display: none;
-	}
-
-	.ubermenu-content-block {
-		margin: 0;
-
-		li {
-			width: 100%;
-			list-style: none;
-
-			ul {
-				margin: 0;
-
-				li {
-					float: left;
-					width: 20%;
-
-					.children {
-
-						li {
-							width: 100%;
-						}
-					}
-				}
-			}
-		}
-	}
-
-	&.ubermenu-skin-vanilla {
-		font-size: inherit;
-	}
-
-	.ubermenu-nav {
+	.menu-sub-container {
 		@include outer-container();
 		@include rem(padding, 0 20px);
-		float: none;
-		margin: 0 auto;
-		
-		.menu-item-search {
-			margin-right: 0;
-			float: right;
+	}
 
-			.menu-search-form {
-				border: 1px solid #ccc;
-				@include rem(padding, 5px 0);
-				box-sizing: border-box;
+	ul {
+		list-style: none;
+		clear: both;
+		display: block;
+		float: left;
+		width: 100%;
+		margin: 0;
+		z-index: 9999;
+		//left: -9999px;
+	
+		ul {
+			float: left;
+			position: absolute;
+			@include rem(top, 37px);
+			@include rem(left, -9999px);
+			z-index: 99999;
+
+			ul {
+				@include rem(left, -9999px);
+				top: 0;
 			}
 
-			p {
-				margin: 0;
+			li {
+				@include rem(margin-right, 40px);
+				float: none;
+				display: inline-block;
+				width: auto;
 
-				.fa {
-					display: inline-block;
-					margin: 0px 10px;
-				}
-
-				.text_input {
-					display: inline-block;
+				a {
 					width: auto;
-					padding: 0;
-					border: 0;
-					margin: 0;
-					min-height: 0;
-					box-shadow: none;
-					outline: 0;
-					text-transform: uppercase;
-					@include rem(font-size, 14px);
 				}
+				
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+			}
 
-				#searchsubmit {
-					display: none;
-				}
+			a {
+				@include rem(width, 200px);
+			}
+
+			:hover > a,
+			.focus > a {
+			}
+
+			a:hover,
+			a.focus {
 			}
 		}
 
-		.ubermenu-item {
-			.ubermenu-target{
-				padding: 8px 20px;
-				text-transform: uppercase;
-			}
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
 		}
+	}
+	li {
+		float: left;
+		@include rem(margin-right, 40px);
+		@include rem(line-height, 38px);
+		text-transform: uppercase;
+
+		@include media ($medium-screen-up) {
+
+		}
+
+		&:hover > a,
+		&.focus > a {
+		}
+	}
+	a {
+		display: block;
+		text-decoration: none;
+	}
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
 	}
 }
 
+/*===========================
+=            CAT            =
+===========================*/
+
+.cat-navigation {
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+	background: rgba(255,255,255,0.5);
+	padding: 10px 0;
+
+	position: absolute;
+	margin-top: 106px;
+	z-index: 9999;
+	left: -9999px;
+
+	.menu-cat-container {
+		@include outer-container();
+		@include rem(padding, 0 20px);
+	}
+
+	ul {
+		column-count: 4;
+		column-gap: 1em;
+		
+		list-style: none;
+		clear: both;
+		display: block;
+		float: left;
+		width: 100%;
+		margin: 0;
+		z-index: 9999;
+		//left: -9999px;
+	
+		ul {
+			float: left;
+
+			ul {
+				@include rem(left, -9999px);
+				top: 0;
+			}
+
+			li {
+				@include rem(margin-right, 40px);
+				float: left;
+				width: 100%;
+				display: block;
+
+				a {
+					width: auto;
+				}
+				
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+			}
+
+			a {
+				@include rem(width, 200px);
+			}
+
+			:hover > a,
+			.focus > a {
+			}
+
+			a:hover,
+			a.focus {
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+		}
+	}
+	li {
+		text-transform: uppercase;
+		display: inline-block;
+		margin: 0 0 1em;
+		width: 100%;
+		box-sizing: border-box;
+
+		> a {
+			color: black;
+		}
+
+		.children {
+			column-count: 1;
+			
+			li {
+				margin: 0;
+				
+				a {
+					color: #666666;
+				}
+			}
+		}
+	}
+
+	a {
+		display: block;
+		text-decoration: none;
+	}
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a,
+	.current-menu-ancestor > a {
+	}
+}

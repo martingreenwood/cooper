@@ -604,18 +604,21 @@ a {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
+/*===========================
+=            PRI            =
+===========================*/
 .main-navigation {
   clear: both;
   display: block;
   float: left;
   width: 100%; }
-  .main-navigation .menu-main-menu-1-container {
+  .main-navigation .menu-primary-container {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     padding: 0 20px;
     padding: 0 2rem; }
-    .main-navigation .menu-main-menu-1-container::after {
+    .main-navigation .menu-primary-container::after {
       clear: both;
       content: "";
       display: table; }
@@ -718,70 +721,150 @@ a {
   text-align: right;
   width: 50%; }
 
-/*==================================
-=            UBDER MENU            =
-==================================*/
-.ubermenu .ubermenu-nav .ubermenu-column-1-4 .widget {
-  width: 100%; }
-
-.ubermenu-main .ubermenu-widgettitle {
-  display: none; }
-.ubermenu-main .ubermenu-content-block {
-  margin: 0; }
-  .ubermenu-main .ubermenu-content-block li {
-    width: 100%;
-    list-style: none; }
-    .ubermenu-main .ubermenu-content-block li ul {
-      margin: 0; }
-      .ubermenu-main .ubermenu-content-block li ul li {
-        float: left;
-        width: 20%; }
-        .ubermenu-main .ubermenu-content-block li ul li .children li {
-          width: 100%; }
-.ubermenu-main.ubermenu-skin-vanilla {
-  font-size: inherit; }
-.ubermenu-main .ubermenu-nav {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 20px;
-  padding: 0 2rem;
-  float: none;
-  margin: 0 auto; }
-  .ubermenu-main .ubermenu-nav::after {
+/*===========================
+=            SUB            =
+===========================*/
+.sub-navigation {
+  clear: both;
+  display: block;
+  float: left;
+  width: 100%;
+  background: #f9f9f9;
+  padding: 10px 0;
+  position: absolute;
+  margin-top: 48px;
+  z-index: 9999;
+  left: -9999px; }
+  .sub-navigation .menu-sub-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    padding: 0 2rem; }
+    .sub-navigation .menu-sub-container::after {
+      clear: both;
+      content: "";
+      display: table; }
+  .sub-navigation ul {
+    list-style: none;
     clear: both;
-    content: "";
-    display: table; }
-  .ubermenu-main .ubermenu-nav .menu-item-search {
-    margin-right: 0;
-    float: right; }
-    .ubermenu-main .ubermenu-nav .menu-item-search .menu-search-form {
-      border: 1px solid #ccc;
-      padding: 5px 0;
-      padding: 0.5rem 0;
-      box-sizing: border-box; }
-    .ubermenu-main .ubermenu-nav .menu-item-search p {
-      margin: 0; }
-      .ubermenu-main .ubermenu-nav .menu-item-search p .fa {
+    display: block;
+    float: left;
+    width: 100%;
+    margin: 0;
+    z-index: 9999; }
+    .sub-navigation ul ul {
+      float: left;
+      position: absolute;
+      top: 37px;
+      top: 3.7rem;
+      left: -9999px;
+      left: -999.9rem;
+      z-index: 99999; }
+      .sub-navigation ul ul ul {
+        left: -9999px;
+        left: -999.9rem;
+        top: 0; }
+      .sub-navigation ul ul li {
+        margin-right: 40px;
+        margin-right: 4rem;
+        float: none;
         display: inline-block;
-        margin: 0px 10px; }
-      .ubermenu-main .ubermenu-nav .menu-item-search p .text_input {
-        display: inline-block;
-        width: auto;
-        padding: 0;
-        border: 0;
-        margin: 0;
-        min-height: 0;
-        box-shadow: none;
-        outline: 0;
-        text-transform: uppercase;
-        font-size: 14px;
-        font-size: 1.4rem; }
-      .ubermenu-main .ubermenu-nav .menu-item-search p #searchsubmit {
-        display: none; }
-  .ubermenu-main .ubermenu-nav .ubermenu-item .ubermenu-target {
-    padding: 8px 20px;
+        width: auto; }
+        .sub-navigation ul ul li a {
+          width: auto; }
+        .sub-navigation ul ul li:hover > ul, .sub-navigation ul ul li.focus > ul {
+          left: 100%; }
+      .sub-navigation ul ul a {
+        width: 200px;
+        width: 20rem; }
+    .sub-navigation ul li:hover > ul,
+    .sub-navigation ul li.focus > ul {
+      left: auto; }
+  .sub-navigation li {
+    float: left;
+    margin-right: 40px;
+    margin-right: 4rem;
+    line-height: 38px;
+    line-height: 3.8rem;
     text-transform: uppercase; }
+  .sub-navigation a {
+    display: block;
+    text-decoration: none; }
+
+/*===========================
+=            CAT            =
+===========================*/
+.cat-navigation {
+  clear: both;
+  display: block;
+  float: left;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px 0;
+  position: absolute;
+  margin-top: 106px;
+  z-index: 9999;
+  left: -9999px; }
+  .cat-navigation .menu-cat-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    padding: 0 2rem; }
+    .cat-navigation .menu-cat-container::after {
+      clear: both;
+      content: "";
+      display: table; }
+  .cat-navigation ul {
+    column-count: 4;
+    column-gap: 1em;
+    list-style: none;
+    clear: both;
+    display: block;
+    float: left;
+    width: 100%;
+    margin: 0;
+    z-index: 9999; }
+    .cat-navigation ul ul {
+      float: left; }
+      .cat-navigation ul ul ul {
+        left: -9999px;
+        left: -999.9rem;
+        top: 0; }
+      .cat-navigation ul ul li {
+        margin-right: 40px;
+        margin-right: 4rem;
+        float: left;
+        width: 100%;
+        display: block; }
+        .cat-navigation ul ul li a {
+          width: auto; }
+        .cat-navigation ul ul li:hover > ul, .cat-navigation ul ul li.focus > ul {
+          left: 100%; }
+      .cat-navigation ul ul a {
+        width: 200px;
+        width: 20rem; }
+    .cat-navigation ul li:hover > ul,
+    .cat-navigation ul li.focus > ul {
+      left: auto; }
+  .cat-navigation li {
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+    box-sizing: border-box; }
+    .cat-navigation li > a {
+      color: black; }
+    .cat-navigation li .children {
+      column-count: 1; }
+      .cat-navigation li .children li {
+        margin: 0; }
+        .cat-navigation li .children li a {
+          color: #666666; }
+  .cat-navigation a {
+    display: block;
+    text-decoration: none; }
 
 /*--------------------------------------------------------------
 # Accessibility
@@ -1210,35 +1293,39 @@ a {
         font-size: 1.4rem;
         line-height: 18px; }
 
-.about-the-studio #main #about-studio {
+.page-template-default #main #about-studio {
   margin: 50px 0;
   margin: 5rem 0; }
-  .about-the-studio #main #about-studio .about-row {
+  .page-template-default #main #about-studio .about-row {
     padding: 12px 0;
     padding: 1.2rem 0;
     float: left; }
-    .about-the-studio #main #about-studio .about-row .section-image img {
-      display: block; }
-    @media screen and (min-width: 1024px) {
-      .about-the-studio #main #about-studio .about-row .section-image {
-        float: left;
-        display: block;
-        margin-right: 2.1276595745%;
-        width: 65.9574468085%; }
-        .about-the-studio #main #about-studio .about-row .section-image:last-child {
-          margin-right: 0; } }
-    .about-the-studio #main #about-studio .about-row .section-text {
+    .page-template-default #main #about-studio .about-row .section-image {
+      display: block;
+      height: 350px;
+      background-size: cover;
+      background-position: center; }
+      @media screen and (min-width: 1024px) {
+        .page-template-default #main #about-studio .about-row .section-image {
+          float: left;
+          display: block;
+          margin-right: 2.1276595745%;
+          width: 65.9574468085%; }
+          .page-template-default #main #about-studio .about-row .section-image:last-child {
+            margin-right: 0; } }
+    .page-template-default #main #about-studio .about-row .section-text {
       background-color: white;
-      padding: 69px 53px;
-      padding: 6.9rem 5.3rem;
+      padding: 50px;
+      padding: 5rem;
+      height: 350px;
       text-align: center; }
       @media screen and (min-width: 1024px) {
-        .about-the-studio #main #about-studio .about-row .section-text {
+        .page-template-default #main #about-studio .about-row .section-text {
           float: left;
           display: block;
           margin-right: 2.1276595745%;
           width: 31.914893617%; }
-          .about-the-studio #main #about-studio .about-row .section-text:last-child {
+          .page-template-default #main #about-studio .about-row .section-text:last-child {
             margin-right: 0; } }
 
 /*--------------------------------------------------------------

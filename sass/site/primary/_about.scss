@@ -1,4 +1,5 @@
-.about-the-studio {
+.page-template-default {
+
 	#main {
 
 		#about-studio {
@@ -9,9 +10,11 @@
     			float: left;
 
 				.section-image {
-					img {
-						display: block;
-					}
+					display: block;
+					height: 350px;
+					background-size: cover;
+					background-position: center;
+
 					@include media($large-screen-up) {
 						@include span-columns(8);
 					}
@@ -19,7 +22,8 @@
 
 				.section-text {
 					background-color: white;
-					@include rem(padding, 69px 53px);
+					@include rem(padding, 50px);
+					height: 350px;
     				text-align: center;
 
 

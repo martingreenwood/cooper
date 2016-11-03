@@ -53,6 +53,7 @@ function _cooper_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', '_cooper' ),
+		'sub' => esc_html__( 'Sub', '_cooper' ),
 	) );
 
 	/*

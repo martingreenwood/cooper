@@ -43,6 +43,31 @@
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav>
 
+		<nav id="sub-navigation" class="sub-navigation" role="navigation">
+			<?php wp_nav_menu( array( 'theme_location' => 'sub', 'menu_id' => 'sub-menu' ) ); ?>
+		</nav>
+
+		<nav id="painting-navigation" class="cat-navigation" role="navigation">
+			<div class="menu-cat-container">
+				<?php echo woocommerce_subcats_from_parentcat_by_ID('12'); //painting ?>
+			</div>
+		</nav>
+		<nav id="drawing-navigation" class="cat-navigation" role="navigation">
+			<div class="menu-cat-container">
+				<?php echo woocommerce_subcats_from_parentcat_by_ID('14'); //brands ?>
+			</div>
+		</nav>
+		<nav id="brands-navigation" class="cat-navigation" role="navigation">
+			<div class="menu-cat-container">
+				<?php echo woocommerce_subcats_from_parentcat_by_ID('13'); //drawing ?>
+			</div>
+		</nav>
+		<nav id="childrens-art-navigation" class="cat-navigation" role="navigation">
+			<div class="menu-cat-container">
+				<?php echo woocommerce_subcats_from_parentcat_by_ID('15'); //childrens art ?>
+			</div>
+		</nav>
+
 		<div class="clear"></div>
 	</header>
 
