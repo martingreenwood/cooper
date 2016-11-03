@@ -604,169 +604,119 @@ a {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-/*
 .main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
-
-	.menu-main-menu-1-container {
-		@include outer-container();
-		@include rem(padding, 0 20px);
-	}
-
-	.menu-item-search {
-		margin-right: 0;
-
-		.menu-search-form {
-			border: 1px solid #ccc;
-			@include rem(padding, 5px 0);
-			box-sizing: border-box;
-		}
-
-		p {
-			margin: 0;
-
-			.fa {
-				display: inline-block;
-				margin: 0px 10px;
-			}
-
-			.text_input {
-				display: inline-block;
-				width: auto;
-				padding: 0;
-				border: 0;
-				margin: 0;
-				min-height: 0;
-				box-shadow: none;
-				outline: 0;
-				text-transform: uppercase;
-				@include rem(font-size, 14px);
-			}
-
-			#searchsubmit {
-				display: none;
-			}
-		}
-	}
-
-	ul {
-		display: none;
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
-		position: relative;
-
-		ul {
-			float: left;
-			position: absolute;
-			@include rem(top, 37px);
-			@include rem(left, -9999px);
-			z-index: 99999;
-
-			ul {
-				@include rem(left, -9999px);
-				top: 0;
-			}
-
-			li {
-				@include rem(margin-right, 40px);
-				float: none;
-				display: inline-block;
-				width: auto;
-
-				a {
-					width: auto;
-				}
-				
-				&:hover > ul,
-				&.focus > ul {
-					left: 100%;
-				}
-			}
-
-			a {
-				@include rem(width, 200px);
-			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
-		}
-
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
-		}
-	}
-	li {
-		float: left;
-		@include rem(margin-right, 40px);
-		@include rem(line-height, 38px);
-		text-transform: uppercase;
-
-		@include media ($medium-screen-up) {
-
-		}
-
-		&:hover > a,
-		&.focus > a {
-		}
-	}
-	a {
-		display: block;
-		text-decoration: none;
-	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
-	}
-}
+  clear: both;
+  display: block;
+  float: left;
+  width: 100%; }
+  .main-navigation .menu-main-menu-1-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    padding: 0 2rem; }
+    .main-navigation .menu-main-menu-1-container::after {
+      clear: both;
+      content: "";
+      display: table; }
+  .main-navigation .menu-item-search {
+    margin-right: 0; }
+    .main-navigation .menu-item-search .menu-search-form {
+      border: 1px solid #ccc;
+      padding: 5px 0;
+      padding: 0.5rem 0;
+      box-sizing: border-box; }
+    .main-navigation .menu-item-search p {
+      margin: 0; }
+      .main-navigation .menu-item-search p .fa {
+        display: inline-block;
+        margin: 0px 10px; }
+      .main-navigation .menu-item-search p .text_input {
+        display: inline-block;
+        width: auto;
+        padding: 0;
+        border: 0;
+        margin: 0;
+        min-height: 0;
+        box-shadow: none;
+        outline: 0;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-size: 1.4rem; }
+      .main-navigation .menu-item-search p #searchsubmit {
+        display: none; }
+  .main-navigation ul {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    position: relative; }
+    .main-navigation ul ul {
+      float: left;
+      position: absolute;
+      top: 37px;
+      top: 3.7rem;
+      left: -9999px;
+      left: -999.9rem;
+      z-index: 99999; }
+      .main-navigation ul ul ul {
+        left: -9999px;
+        left: -999.9rem;
+        top: 0; }
+      .main-navigation ul ul li {
+        margin-right: 40px;
+        margin-right: 4rem;
+        float: none;
+        display: inline-block;
+        width: auto; }
+        .main-navigation ul ul li a {
+          width: auto; }
+        .main-navigation ul ul li:hover > ul, .main-navigation ul ul li.focus > ul {
+          left: 100%; }
+      .main-navigation ul ul a {
+        width: 200px;
+        width: 20rem; }
+    .main-navigation ul li:hover > ul,
+    .main-navigation ul li.focus > ul {
+      left: auto; }
+  .main-navigation li {
+    float: left;
+    margin-right: 40px;
+    margin-right: 4rem;
+    line-height: 38px;
+    line-height: 3.8rem;
+    text-transform: uppercase; }
+  .main-navigation a {
+    display: block;
+    text-decoration: none; }
 
 .menu-toggle,
 .main-navigation.toggled ul {
-	display: block;
-}
+  display: block; }
 
-@include media ($large-screen-up) {
-	.menu-toggle {
-		display: none;
-	}
-	.main-navigation ul {
-		display: block;
-	}
-}
+@media screen and (min-width: 1024px) {
+  .menu-toggle {
+    display: none; }
 
-.comment-navigation,
-.posts-navigation,
+  .main-navigation ul {
+    display: block; } }
+.site-main .comment-navigation, .site-main
+.posts-navigation, .site-main
 .post-navigation {
-
-	.site-main & {
-		@include rem(margin, 0 0 15px);
-		overflow: hidden;
-	}
-
-	.nav-previous {
-		float: left;
-		width: 50%;
-	}
-
-	.nav-next {
-		float: right;
-		text-align: right;
-		width: 50%;
-	}
-}
-
-*.
+  margin: 0 0 15px;
+  margin: 0 0 1.5rem;
+  overflow: hidden; }
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+  float: left;
+  width: 50%; }
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+  float: right;
+  text-align: right;
+  width: 50%; }
 
 /*==================================
 =            UBDER MENU            =
@@ -778,6 +728,16 @@ a {
   display: none; }
 .ubermenu-main .ubermenu-content-block {
   margin: 0; }
+  .ubermenu-main .ubermenu-content-block li {
+    width: 100%;
+    list-style: none; }
+    .ubermenu-main .ubermenu-content-block li ul {
+      margin: 0; }
+      .ubermenu-main .ubermenu-content-block li ul li {
+        float: left;
+        width: 20%; }
+        .ubermenu-main .ubermenu-content-block li ul li .children li {
+          width: 100%; }
 .ubermenu-main.ubermenu-skin-vanilla {
   font-size: inherit; }
 .ubermenu-main .ubermenu-nav {

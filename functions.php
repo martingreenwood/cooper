@@ -165,6 +165,11 @@ function cooper_excerpt_in_product_archives() {
 }
 
 /**
+ * Custom menu
+ */
+//require get_template_directory() . '/inc/menu.php';
+
+/**
  * Custom options page for this theme.
  */
 require get_template_directory() . '/inc/options.php';
