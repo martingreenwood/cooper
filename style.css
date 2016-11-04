@@ -1069,26 +1069,65 @@ a {
         padding-left: 20px;
         padding-left: 2rem; }
 
-.woocommerce .archive #main {
+.woocommerce #main, .archive #main {
   margin-top: 0; }
-  .woocommerce .archive #main .page-title {
-    padding-top: 50px;
-    padding-top: 5rem; }
-  .woocommerce .archive #main .page-description {
+  .woocommerce #main #intro, .archive #main #intro {
+    background-color: #e3e3e3;
+    padding: 30px 0; }
+    .woocommerce #main #intro p:last-of-type, .archive #main #intro p:last-of-type {
+      margin: 0; }
+  .woocommerce #main .breadcrumbs, .woocommerce #main .woocommerce-breadcrumb, .archive #main .breadcrumbs, .archive #main .woocommerce-breadcrumb {
+    margin-bottom: 20px;
+    padding: 0;
+    font-size: 16px;
+    color: #777;
+    font-style: italic; }
+    .woocommerce #main .breadcrumbs a, .woocommerce #main .woocommerce-breadcrumb a, .archive #main .breadcrumbs a, .archive #main .woocommerce-breadcrumb a {
+      color: inherit; }
+  .woocommerce #main .page-title, .archive #main .page-title {
+    margin: 0 0 20px 0; }
+  .woocommerce #main .page-description, .archive #main .page-description {
     text-align: center; }
-    .woocommerce .archive #main .page-description p {
-      color: #666; }
-  .woocommerce .archive #main #filter {
+    .woocommerce #main .page-description p, .archive #main .page-description p {
+      color: #666666; }
+  .woocommerce #main #filter, .archive #main #filter {
     background-color: white;
-    text-align: center; }
-  .woocommerce .archive #main #results {
+    text-align: center;
+    padding: 30px 0; }
+    .woocommerce #main #filter p, .archive #main #filter p {
+      color: #666666;
+      margin-bottom: 20px; }
+    .woocommerce #main #filter .widget, .archive #main #filter .widget {
+      float: left;
+      margin: 0; }
+      .woocommerce #main #filter .widget.widget_wcapf-attribute-filter, .archive #main #filter .widget.widget_wcapf-attribute-filter {
+        float: right; }
+        .woocommerce #main #filter .widget.widget_wcapf-attribute-filter .select2-container--default .select2-selection--single, .archive #main #filter .widget.widget_wcapf-attribute-filter .select2-container--default .select2-selection--single {
+          background-color: #eeeeee;
+          border: 1px solid #aaa;
+          border-radius: 0px;
+          width: 190px;
+          outline: 0;
+          text-align: left; }
+          .woocommerce #main #filter .widget.widget_wcapf-attribute-filter .select2-container--default .select2-selection--single .select2-selection__placeholder, .archive #main #filter .widget.widget_wcapf-attribute-filter .select2-container--default .select2-selection--single .select2-selection__placeholder {
+            color: black; }
+        .woocommerce #main #filter .widget.widget_wcapf-attribute-filter .select2-container--default .select2-results__option--highlighted[aria-selected], .archive #main #filter .widget.widget_wcapf-attribute-filter .select2-container--default .select2-results__option--highlighted[aria-selected] {
+          background-color: #f9f9f9;
+          color: black; }
+    .woocommerce #main #filter .wcapf-layered-nav ul, .archive #main #filter .wcapf-layered-nav ul {
+      margin: 0; }
+      .woocommerce #main #filter .wcapf-layered-nav ul li, .archive #main #filter .wcapf-layered-nav ul li {
+        margin: 0 20px 0 0 !important;
+        text-align: left;
+        display: inline-block; }
+  .woocommerce #main #results, .archive #main #results {
     padding-top: 30px;
     padding-top: 3rem; }
-    .woocommerce .archive #main #results .woocommerce-ordering {
+    .woocommerce #main #results .woocommerce-ordering, .archive #main #results .woocommerce-ordering {
       float: left; }
-    .woocommerce .archive #main #results .woocommerce-result-count {
+    .woocommerce #main #results .woocommerce-result-count, .archive #main #results .woocommerce-result-count {
       float: right; }
-    .woocommerce .archive #main #results ul.products li.product {
+    .woocommerce #main #results ul.products li.product, .archive #main #results ul.products li.product {
       background-color: white; }
 
 /*--------------------------------------------------------------

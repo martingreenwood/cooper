@@ -1,42 +1,114 @@
-.woocommerce .archive {
+.woocommerce, .archive {
 
-		#main {
-			margin-top: 0;
+	#main {
+		margin-top: 0;
 
-			.page-title {
-				@include rem(padding-top, 50px);
-			}
+		#intro {
+			background-color: #e3e3e3;
+			padding: 30px 0;
 
-			.page-description {
-				text-align: center;
-
-				p {
-					color: #666;
+			p {
+				&:last-of-type {
+					margin: 0;
 				}
 			}
+		}
 
-			#filter {
-				background-color: white;
-				text-align: center;
+		.breadcrumbs, .woocommerce-breadcrumb {
+			margin-bottom: 20px;
+			padding: 0;
+			font-size: 16px;
+			color: #777;
+			font-style: italic;
+
+			a {
+				color: inherit;
+			}
+		}
+
+		.page-title {
+			margin: 0 0 20px 0;
+		}
+
+		.page-description {
+			text-align: center;
+
+			p {
+				color: #666666;
+			}
+		}
+
+		#filter {
+			background-color: white;
+			text-align: center;
+			padding: 30px 0;
+
+			p {
+				color: #666666;
+				margin-bottom: 20px
 			}
 
-			#results {
-				@include rem(padding-top, 30px);
+			.widget {
+				float: left;
+				margin: 0;
 
-				.woocommerce-ordering {
-					float: left;
-				}
-
-				.woocommerce-result-count {
+				&.widget_wcapf-attribute-filter {
 					float: right;
+
+					.select2-container--default {
+						
+						.select2-selection--single {
+							background-color: #eeeeee;
+							border: 1px solid #aaa;
+							border-radius: 0px;
+							width: 190px;
+							outline: 0;
+							text-align: left;
+
+							.select2-selection__placeholder {
+							color: black;
+							}
+						}
+
+						.select2-results__option--highlighted[aria-selected] {
+							background-color: #f9f9f9;
+							color: black;
+						}
+					}
 				}
+			}
 
-				ul.products {
-
-					li.product {
-						background-color: white;
+			.wcapf-layered-nav {
+				
+				ul {
+					margin: 0;
+				
+					li {
+						margin: 0 20px 0 0 !important;
+						text-align: left;
+						display: inline-block;
 					}
 				}
 			}
 		}
+
+		#results {
+			@include rem(padding-top, 30px);
+
+			.woocommerce-ordering {
+				float: left;
+			}
+
+			.woocommerce-result-count {
+				float: right;
+			}
+
+			ul.products {
+
+				li.product {
+					background-color: white;
+				}
+			}
+		}
+	}
 }

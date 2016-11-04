@@ -33,31 +33,44 @@ get_header( 'shop' ); ?>
 		do_action( 'woocommerce_before_main_content' );
 
 	?>
-	<div class="container">
+	<div id="intro">
+		<div class="container">
 
-		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+			<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 
-			<h2 class="page-title"><?php woocommerce_page_title(); ?></h2>
+				<h2 class="page-title"><?php woocommerce_page_title(); ?></h2>
 
-		<?php endif; ?>
-
-	
-		<?php
-			/**
-			 * woocommerce_archive_description hook.
-			 *
-			 * @hooked woocommerce_taxonomy_archive_description - 10
-			 * @hooked woocommerce_product_archive_description - 10
-			 */
-			add_action( 'woocommerce_archive_description', 'woocommerce_breadcrumb', 10 );
-			do_action( 'woocommerce_archive_description' );
-		?>
+			<?php endif; ?>
+		
+			<?php
+				/**
+				 * woocommerce_archive_description hook.
+				 *
+				 * @hooked woocommerce_taxonomy_archive_description - 10
+				 * @hooked woocommerce_product_archive_description - 10
+				 */
+				do_action( 'woocommerce_archive_description' );
+			?>
+		</div>
 	</div>
 
 	<section id="filter">
 		<div class="container">
+			
+			<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
+			<?php 
+			if(function_exists('bcn_display')) {
+			    bcn_display();
+			} else {
+				woocommerce_breadcrumb();
+			}
+			?>
+			</div>
+
 			<p>Filter through the products with these options below:</p>
-		
+
+			<?php dynamic_sidebar( 'filter-sidebar' ); ?>
+
 		</div>
 	</section>
 
