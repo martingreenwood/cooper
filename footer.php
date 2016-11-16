@@ -6,24 +6,24 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package _cooper
+ * @package cooper
  */
 
 ?>
 
-	</div><!-- #content -->
+	</div>
 	
+	<div class="clear"></div>	
 	
-	
-		<footer id="colophon" class="site-footer" role="contentinfo">
-			<div class="container">
-				<div class="site-info">
-					© <?php echo date('Y'); ?> Heaton Cooper Studio | Email <?php the_field('email_address','option'); ?> | Telephone <?php the_field('phone','option'); ?> | Fax <?php the_field('fax','option'); ?>
-				</div><!-- .site-info -->
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="container">
+			<div class="site-info">
+				© <?php echo date('Y'); ?> Heaton Cooper Studio | Email <?php the_field('email_address','option'); ?> | Telephone <?php the_field('phone','option'); ?> | Fax <?php the_field('fax','option'); ?>
 			</div>
-		</footer><!-- #colophon -->
+		</div>
+	</footer>
 	
-</div><!-- #page -->
+</div>
 
 <?php wp_footer(); ?>
 

@@ -2,11 +2,14 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
-	border-color: $base-border-color;
-	background: $background-button;
-	color: $text-color;
-	@include rem(padding, 10px 20px);
+	vertical-align: middle;
+	float: left;
+	background: steelblue;
+	text-transform: uppercase;
+	font-weight: 500;
+	border-radius: 0;
+	line-height: 42px;
+	padding: 0 20px;
 
 	&:hover {
 	}

@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package _cooper
+ * @package cooper
  */
 
 get_header(); ?>

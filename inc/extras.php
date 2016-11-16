@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package _cooper
+ * @package cooper
  */
 
 /**
@@ -13,7 +13,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function _cooper_body_classes( $classes ) {
+function cooper_body_classes( $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -26,7 +26,7 @@ function _cooper_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', '_cooper_body_classes' );
+add_filter( 'body_class', 'cooper_body_classes' );
 
 
 /**
@@ -37,19 +37,19 @@ add_filter( 'body_class', '_cooper_body_classes' );
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 
-add_action('woocommerce_before_main_content', '_cooper_wrapper_start', 10);
-add_action('woocommerce_after_main_content', '_cooper_wrapper_end', 10);
-add_action( 'after_setup_theme', '_cooper_woocommerce_support' );
+add_action('woocommerce_before_main_content', 'cooper_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'cooper_wrapper_end', 10);
+add_action( 'after_setup_theme', 'cooper_woocommerce_support' );
 
-function _cooper_wrapper_start() {
+function cooper_wrapper_start() {
   echo '<main id="main" class="site-main" role="main">';
 }
 
-function _cooper_wrapper_end() {
+function cooper_wrapper_end() {
   echo '</main>';
 }
 
-function _cooper_woocommerce_support() {
+function cooper_woocommerce_support() {
 	add_theme_support( 'woocommerce' );
 }
 
@@ -59,7 +59,7 @@ function _cooper_woocommerce_support() {
 function add_search_to_wp_menu ( $items, $args ) {
 	if( 'primary' === $args->theme_location ) {
 		$items .= '<li class="menu-item menu-item-search">';
-			$items .= '<form method="get" class="menu-search-form" action="' . get_bloginfo('url') . '/"><p><i class="fa fa-search" aria-hidden="true"></i><input class="text_input" type="text" placeholder="Search The Shop" name="s" id="s" /><input type="submit" class="_cooper-wp-search" id="searchsubmit" value="search" /></p></form>';
+			$items .= '<form method="get" class="menu-search-form" action="' . get_bloginfo('url') . '/"><p><i class="fa fa-search" aria-hidden="true"></i><input class="text_input" type="text" placeholder="Search The Shop" name="s" id="s" /><input type="submit" class="cooper-wp-search" id="searchsubmit" value="search" /></p></form>';
 		$items .= '</li>';
 	}
 	return $items;
@@ -151,3 +151,83 @@ function woocommerce_subcats_from_parentcat_by_ID($parent_cat_ID) {
 	echo '</li>';
 	echo '</ul>';
 }
+
+/**
+ * Place a cart icon with number of items and total cost in the menu bar.
+ */
+add_filter('wp_nav_menu_items','sk_wcmenucart', 10, 2);
+function sk_wcmenucart($menu, $args) {
+
+	// Check if WooCommerce is active and add a new item to a menu assigned to Primary Navigation Menu location
+	if ( !in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) || 'primary' !== $args->theme_location )
+		return $menu;
+
+	ob_start();
+		global $woocommerce;
+		$items = $woocommerce->cart->get_cart();
+		$viewing_cart = __('View your shopping cart', 'ct');
+		$start_shopping = __('Start shopping', 'ct');
+		$cart_url = $woocommerce->cart->get_cart_url();
+		$shop_page_url = get_permalink( woocommerce_get_page_id( 'shop' ) );
+		$cart_contents_count = $woocommerce->cart->cart_contents_count;
+		$cart_contents = sprintf(_n('%d', '%d', $cart_contents_count, 'ct'), $cart_contents_count);
+		$cart_total = $woocommerce->cart->get_cart_total();
+
+		// Uncomment the line below to hide nav menu cart item when there are no items in the cart
+		// if ( $cart_contents_count > 0 ) {
+			if ($cart_contents_count == 0) {
+				$menu_item = '<li class="cart_meniu_item"><a class="wcmenucart-contents" href="'. $shop_page_url .'" title="'. $start_shopping .'">';
+				$menu_item .= '<div class="cart_icon empty"></div>';
+			} else {
+				$menu_item = '<li class="cart_meniu_item"><a class="wcmenucart-contents" href="'. $cart_url .'" title="'. $viewing_cart .'">';
+				$menu_item .= '<div class="cart_icon"></div>';
+			}
+
+			$menu_item .= '<div class="cart_contents">'.$cart_contents.'</div>';
+			$menu_item .= '</a>';
+			
+			$menu_item .= '<div class="cart-content">';
+			foreach ($items as $item => $values) { 
+				$_product = $values['data']->post;
+				//product image
+				$getProductDetail = wc_get_product( $values['product_id'] );
+				$price = get_post_meta($values['product_id'] , '_price', true);
+
+				$menu_item .= '<div class="cart-item">';
+					$menu_item .= '<p>';
+						$menu_item .= $getProductDetail->get_image(); // accepts 2 arguments ( size, attr )
+						$menu_item .= '<span>' .$_product->post_title.' </span> <span>x ' .$values['quantity'];
+						//$menu_item .=  get_post_meta($values['product_id'] , '_price', true)."</span>";
+						$menu_item .= '</span>';
+					$menu_item .= '</p>';
+					//$meta_item .= print_r(get_post_meta( $values['product_id'] ));
+				$menu_item .= '</div>';
+			}
+			$menu_item .= '</div>';
+			$menu_item .= '</li>';
+		// Uncomment the line below to hide nav menu cart item when there are no items in the cart
+		// }
+		echo $menu_item;
+	$social = ob_get_clean();
+	return $menu . $social;
+
+}
+
+function cooper_custom_variable_price( $price, $product ) {
+    // Main Price
+    $prices = array( $product->get_variation_price( 'min', true ), $product->get_variation_price( 'max', true ) );
+    $price = $prices[0] !== $prices[1] ? sprintf( __( 'From: %1$s', 'woocommerce' ), wc_price( $prices[0] ) ) : wc_price( $prices[0] );
+
+    // Sale Price
+    $prices = array( $product->get_variation_regular_price( 'min', true ), $product->get_variation_regular_price( 'max', true ) );
+    sort( $prices );
+    $saleprice = $prices[0] !== $prices[1] ? sprintf( __( 'From: %1$s', 'woocommerce' ), wc_price( $prices[0] ) ) : wc_price( $prices[0] );
+
+    if ( $price !== $saleprice ) {
+        $price = '' . $saleprice . ' ' . $price . '';
+    }
+    
+    return $price;
+}
+add_filter( 'woocommerce_variable_sale_price_html', 'cooper_custom_variable_price', 10, 2 );
+add_filter( 'woocommerce_variable_price_html', 'cooper_custom_variable_price', 10, 2 );

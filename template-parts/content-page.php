@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package _cooper
+ * @package cooper
  */
 
 ?>
@@ -19,7 +19,7 @@
 			the_content();
 
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', '_cooper' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'cooper' ),
 				'after'  => '</div>',
 			) );
 		?>

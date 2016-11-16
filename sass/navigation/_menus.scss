@@ -13,8 +13,87 @@
 		@include rem(padding, 0 20px);
 	}
 
+	.cart_meniu_item {
+		float: right;
+		position: relative;
+
+		.cart_icon {
+			background: url(assets/bag.svg);
+			background-size: 20px;
+			background-position: center;
+			background-repeat: no-repeat;
+			display: inline-block;
+			margin-right: 10px;
+			width: 20px;
+			line-height: 38px;
+			height: 38px;
+			float: left;
+
+			&.empty {
+				background: url(assets/bag-empty.svg);
+			}
+		}
+
+		.cart_contents {
+			display: inline-block;
+		}
+
+		.cart-content {
+			padding: 20px;
+			background: white;
+			border: 1px solid #eee;
+			position: absolute;
+			right: auto;
+			left: -9999px;
+			z-index: 10000;
+
+			&.show {
+				left: auto;
+				right: 0;
+			}
+
+			.cart-item {
+				display: block;
+				float: left;
+				width: 300px;
+
+				p {
+					font-size: 13px;
+					width: 100%;
+					float: left;
+
+					&:last-of-type {
+						margin: 0;
+					}
+
+					span {
+						float: left;
+						font-weight: bold;
+						width: 210px;
+
+						&:last-of-type {
+							float: right;
+							font-weight: normal;
+							width: auto;
+						}
+					}
+				}
+
+				img {
+					float: left;
+					width: 40px;
+					margin-right: 10px;
+					display: block;
+				}
+
+
+			}
+		}
+	}
+
 	.menu-item-search {
 		margin-right: 0;
+		float: right;
 
 		.menu-search-form {
 			border: 1px solid #ccc;
@@ -104,7 +183,7 @@
 	}
 	li {
 		float: left;
-		@include rem(margin-right, 40px);
+		@include rem(margin-right, 25px);
 		@include rem(line-height, 38px);
 		text-transform: uppercase;
 
@@ -119,12 +198,15 @@
 	a {
 		display: block;
 		text-decoration: none;
+		color: #999;
 	}
 
 	.current_page_item > a,
 	.current-menu-item > a,
 	.current_page_ancestor > a,
+	.current_page_parent > a,
 	.current-menu-ancestor > a {
+		color: black;
 	}
 }
 
@@ -241,6 +323,7 @@
 			left: auto;
 		}
 	}
+
 	li {
 		float: left;
 		@include rem(margin-right, 40px);
@@ -255,16 +338,21 @@
 		&.focus > a {
 		}
 	}
+	
 	a {
 		display: block;
 		text-decoration: none;
+		color: #999;
 	}
 
 	.current_page_item > a,
 	.current-menu-item > a,
 	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
+	.current-menu-ancestor > a,
+	.current-product-ancestor > a {
+		color: black;
 	}
+
 }
 
 /*===========================
@@ -371,11 +459,14 @@
 	a {
 		display: block;
 		text-decoration: none;
+		color: #999;
 	}
 
 	.current_page_item > a,
 	.current-menu-item > a,
 	.current_page_ancestor > a,
+	.current_page_parent > a,
 	.current-menu-ancestor > a {
+		color: black;
 	}
 }
