@@ -59,7 +59,8 @@ function cooper_woocommerce_support() {
 function add_search_to_wp_menu ( $items, $args ) {
 	if( 'primary' === $args->theme_location ) {
 		$items .= '<li class="menu-item menu-item-search">';
-			$items .= '<form method="get" class="menu-search-form" action="' . get_bloginfo('url') . '/"><p><i class="fa fa-search" aria-hidden="true"></i><input class="text_input" type="text" placeholder="Search The Shop" name="s" id="s" /><input type="submit" class="cooper-wp-search" id="searchsubmit" value="search" /></p></form>';
+			$items .= '<form role="search" method="get" class="menu-search-form woocommerce-product-search" action="' . get_bloginfo('url') . '/"><p><i class="fa fa-search" aria-hidden="true"></i><input type="search" id="woocommerce-product-search-field" class="text_input search-field" placeholder="Search The Shop" value="" name="s" title="Search for:"><input id="searchsubmit" type="submit" class="cooper-wp-search" value="Search"><input type="hidden" name="post_type" value="product"></form>';
+			//$items .= '<form method="get" class="menu-search-form" action="' . get_bloginfo('url') . '/"><p><i class="fa fa-search" aria-hidden="true"></i><input class="text_input" type="text" placeholder="Search The Shop" name="s" id="s" /><input type="submit" class="cooper-wp-search" id="searchsubmit" value="search" /></p></form>';
 		$items .= '</li>';
 	}
 	return $items;

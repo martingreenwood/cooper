@@ -1,4 +1,20 @@
-.woocommerce {
+.woocommerce-page {
+
+	input.button, a.button, .button {
+		font-weight: 600;
+		border-radius: 0;
+		text-transform: uppercase;
+		font-size: 14px;
+		padding: 9px;
+
+		&.alt {
+			background-color: $woo-button;
+
+			&:hover {
+				background-color: darken($woo-button, 10);
+			}
+		}
+	}
 
 	.onsale {
 		display: none;
@@ -13,6 +29,19 @@
 			background-color: #e3e3e3;
 		}
 	}
+
+	.woocommerce-error, .woocommerce-info, .woocommerce-message {
+		border-top: 3px solid #333;
+		color: #666666;
+		line-height: 28px;
+
+		.button {
+			font-weight: 600;
+			border-radius: 0;
+			text-transform: uppercase;
+			font-size: 14px;
+		}
+	}	
 
 	&.single {
 
@@ -446,10 +475,14 @@
 
 			.widget {
 				float: left;
+				text-align: left;
 				margin: 0;
+				width: 75%;
 
 				&.widget_wcapf-attribute-filter {
 					float: right;
+					text-align: right;
+					width: 25%;
 
 					.wcapf-dropdown-nav {
 						width: 200px;
@@ -584,4 +617,137 @@
 	#content {
 		background-color: white;
 	}
+
+	#main {
+		margin-top: 0;
+
+		h2 {
+			font-size: 26px;
+			text-align: left;
+		}
+
+		.entry-header {
+			h2 {
+				font-size: 40px;
+				text-align: center;
+				margin-bottom: 40px;
+			}
+		}
+
+		.entry-content {
+			padding: 0;
+			margin: 0;
+			text-align: left;
+
+			.shop_table {
+				margin: 0 0 100px 0;
+				border-radius: 0;
+
+				.actions .input-text {
+					width: 150px;
+					text-transform: uppercase;
+					box-shadow: none;
+				}
+
+				th, td {
+					border-bottom: 0;
+				}
+			}
+
+			.cart_totals {
+				.shop_table {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+	}
+
+}
+
+
+// template
+
+.page-template-woocommerce-page {
+
+	#colophon .site-info {
+		background-color: transparent;
+	}
+
+}
+
+// shop archive
+
+.woocommerce-page.archive {
+
+	#colophon {
+		background-color: white;
+	}
+
+}
+
+// shop checkout
+
+.woocommerce-page.checkout {
+
+	#content {
+		margin-bottom: 40px;
+	}
+
+	#main .entry-content {
+		text-align: left;
+	}
+
+	.woocommerce-billing-fields, .woocommerce-shipping-fields {
+		h3 {
+			font-size: 22px;
+			color: #666;
+
+			input[type="checkbox"], input[type="radio"] {
+				-webkit-appearance: none;
+				-moz-appearance:    none;
+				appearance:         none;
+
+				border: 2px solid #666;
+				width: 20px;
+				box-sizing: border-box;
+				height: 20px;
+				float: left;
+				margin-top: 8px;
+				margin-right: 9px;
+				outline: 0;
+				position: relative;
+
+				&:checked {
+					&:before {
+						font-family: WooCommerce;
+						content: "\e017";
+						display: inline-block;
+						position: absolute;
+						font-size: 12px;
+						color: #666;
+						font-weight: 800;
+						top: 2px;
+						left: 2px;
+					}
+				}
+			}
+
+			label {
+				font-weight: inherit;
+				font-size: inherit;
+				float: none;
+				display: inline-block;
+				line-height: inherit;
+				margin: 0;
+				font-family: inherit;
+			}
+		}
+	}
+
+	#payment {
+		background: #f5f5f5;
+		border-radius: 0;
+	}
+
 }

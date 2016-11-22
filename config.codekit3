@@ -3250,6 +3250,12 @@
 		"oAP": "\/template-parts\/content.php",
 		"oF": 0
 		},
+	"\/woocommerce-page.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/woocommerce-page.php",
+		"oF": 0
+		},
 	"\/woocommerce\/archive-product.php": {
 		"ft": 8192,
 		"oA": 0,

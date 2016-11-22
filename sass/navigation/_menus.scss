@@ -30,7 +30,7 @@
 			float: left;
 
 			&.empty {
-				background: url(assets/bag-empty.svg);
+				background-image: url(assets/bag-empty.svg);
 			}
 		}
 
@@ -44,6 +44,7 @@
 			border: 1px solid #eee;
 			position: absolute;
 			right: auto;
+			top: 37px;
 			left: -9999px;
 			z-index: 10000;
 

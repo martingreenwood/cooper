@@ -14,7 +14,6 @@ d.slice(e-c+1,e+c+2).addClass("slick-active").attr("aria-hidden","false")),0===a
 =============================*/
 
 //slick
-
 ( function( $ ) {
 
 	$('.slides').slick();
@@ -62,3 +61,13 @@ jQuery(window).resize(function() {
 	equalheight('.eq-height');
 });
 
+// cart hover
+
+(function($) {
+
+	$('.cart_meniu_item').on('hover', 'a', function(event) {
+		event.preventDefault();
+		$('.cart-content').toggleClass('show');
+	});
+
+})(jQuery);
