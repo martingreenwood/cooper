@@ -42,10 +42,11 @@
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 		</nav>
 
+		
+		<?php  /* ?>
 		<nav id="sub-navigation" class="sub-navigation" role="navigation">
 			<?php wp_nav_menu( array( 'theme_location' => 'sub', 'menu_id' => 'sub-menu' ) ); ?>
 		</nav>
-
 		<nav id="painting-navigation" class="cat-navigation" role="navigation">
 			<div class="menu-cat-container">
 				<?php echo woocommerce_subcats_from_parentcat_by_ID('12'); //painting ?>
@@ -66,6 +67,7 @@
 				<?php echo woocommerce_subcats_from_parentcat_by_ID('15'); //childrens art ?>
 			</div>
 		</nav>
+		<?php */ ?>
 
 		<div class="clear"></div>
 	</header>

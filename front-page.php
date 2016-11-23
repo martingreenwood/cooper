@@ -107,8 +107,6 @@ get_header(); ?>
 		get_template_part( 'partials/social', 'blocks' );
 		?>
 
-
-
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

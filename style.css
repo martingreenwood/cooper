@@ -719,32 +719,53 @@ a {
     .main-navigation ul ul {
       float: left;
       position: absolute;
-      top: 37px;
-      top: 3.7rem;
+      top: 38px;
+      top: 3.8rem;
       left: -9999px;
       left: -999.9rem;
-      z-index: 99999; }
-      .main-navigation ul ul ul {
-        left: -9999px;
-        left: -999.9rem;
-        top: 0; }
+      z-index: 99999;
+      background: #f9f9f9;
+      padding: 5px 15px; }
       .main-navigation ul ul li {
-        margin-right: 40px;
-        margin-right: 4rem;
-        float: none;
-        display: inline-block;
-        width: auto; }
+        float: left;
+        margin: 0;
+        box-sizing: border-box;
+        margin-right: 20px; }
         .main-navigation ul ul li a {
           width: auto; }
+        .main-navigation ul ul li ul {
+          left: -9999px;
+          top: 42px;
+          position: absolute;
+          width: 100%;
+          background: white; }
+          .main-navigation ul ul li ul li {
+            float: left;
+            width: 25%;
+            margin-bottom: 15px; }
+          .main-navigation ul ul li ul ul {
+            display: block;
+            background: white;
+            position: relative;
+            float: left;
+            width: 100%;
+            top: auto;
+            left: auto;
+            padding: 0; }
+            .main-navigation ul ul li ul ul li {
+              width: 100%;
+              margin-bottom: 0; }
         .main-navigation ul ul li:hover > ul,
         .main-navigation ul ul li.focus > ul {
-          left: 100%; }
+          left: 0;
+          width: 100%; }
       .main-navigation ul ul a {
         width: 200px;
         width: 20rem; }
     .main-navigation ul li:hover > ul,
     .main-navigation ul li.focus > ul {
-      left: auto; }
+      left: 0;
+      width: 100%; }
   .main-navigation li {
     float: left;
     margin-right: 25px;
@@ -752,6 +773,9 @@ a {
     line-height: 38px;
     line-height: 3.8rem;
     text-transform: uppercase; }
+    .main-navigation li:hover > a,
+    .main-navigation li.focus > a {
+      color: black; }
   .main-navigation a {
     display: block;
     text-decoration: none;
@@ -793,166 +817,8 @@ a {
   text-align: right;
   width: 50%; }
 
-/*===========================
-=            SUB            =
-===========================*/
-.sub-navigation {
-  clear: both;
-  display: block;
-  float: left;
-  width: 100%;
-  background: #f9f9f9;
-  padding: 10px 0;
-  position: absolute;
-  margin-top: 48px;
-  z-index: 9999;
-  left: -9999px; }
-  .sub-navigation .menu-sub-container {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 20px;
-    padding: 0 2rem; }
-    .sub-navigation .menu-sub-container::after {
-      clear: both;
-      content: "";
-      display: table; }
-  .sub-navigation ul {
-    list-style: none;
-    clear: both;
-    display: block;
-    float: left;
-    width: 100%;
-    margin: 0;
-    z-index: 9999; }
-    .sub-navigation ul ul {
-      float: left;
-      position: absolute;
-      top: 37px;
-      top: 3.7rem;
-      left: -9999px;
-      left: -999.9rem;
-      z-index: 99999; }
-      .sub-navigation ul ul ul {
-        left: -9999px;
-        left: -999.9rem;
-        top: 0; }
-      .sub-navigation ul ul li {
-        margin-right: 40px;
-        margin-right: 4rem;
-        float: none;
-        display: inline-block;
-        width: auto; }
-        .sub-navigation ul ul li a {
-          width: auto; }
-        .sub-navigation ul ul li:hover > ul,
-        .sub-navigation ul ul li.focus > ul {
-          left: 100%; }
-      .sub-navigation ul ul a {
-        width: 200px;
-        width: 20rem; }
-    .sub-navigation ul li:hover > ul,
-    .sub-navigation ul li.focus > ul {
-      left: auto; }
-  .sub-navigation li {
-    float: left;
-    margin-right: 40px;
-    margin-right: 4rem;
-    line-height: 38px;
-    line-height: 3.8rem;
-    text-transform: uppercase; }
-  .sub-navigation a {
-    display: block;
-    text-decoration: none;
-    color: #999; }
-  .sub-navigation .current_page_item > a,
-  .sub-navigation .current-menu-item > a,
-  .sub-navigation .current_page_ancestor > a,
-  .sub-navigation .current-menu-ancestor > a,
-  .sub-navigation .current-product-ancestor > a {
-    color: black; }
-
-/*===========================
-=            CAT            =
-===========================*/
-.cat-navigation {
-  clear: both;
-  display: block;
-  float: left;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.5);
-  padding: 10px 0;
-  position: absolute;
-  margin-top: 106px;
-  z-index: 9999;
-  left: -9999px; }
-  .cat-navigation .menu-cat-container {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 20px;
-    padding: 0 2rem; }
-    .cat-navigation .menu-cat-container::after {
-      clear: both;
-      content: "";
-      display: table; }
-  .cat-navigation ul {
-    column-count: 4;
-    column-gap: 1em;
-    list-style: none;
-    clear: both;
-    display: block;
-    float: left;
-    width: 100%;
-    margin: 0;
-    z-index: 9999; }
-    .cat-navigation ul ul {
-      float: left; }
-      .cat-navigation ul ul ul {
-        left: -9999px;
-        left: -999.9rem;
-        top: 0; }
-      .cat-navigation ul ul li {
-        margin-right: 40px;
-        margin-right: 4rem;
-        float: left;
-        width: 100%;
-        display: block; }
-        .cat-navigation ul ul li a {
-          width: auto; }
-        .cat-navigation ul ul li:hover > ul,
-        .cat-navigation ul ul li.focus > ul {
-          left: 100%; }
-      .cat-navigation ul ul a {
-        width: 200px;
-        width: 20rem; }
-    .cat-navigation ul li:hover > ul,
-    .cat-navigation ul li.focus > ul {
-      left: auto; }
-  .cat-navigation li {
-    text-transform: uppercase;
-    display: inline-block;
-    margin: 0 0 1em;
-    width: 100%;
-    box-sizing: border-box; }
-    .cat-navigation li > a {
-      color: black; }
-    .cat-navigation li .children {
-      column-count: 1; }
-      .cat-navigation li .children li {
-        margin: 0; }
-        .cat-navigation li .children li a {
-          color: #666666; }
-  .cat-navigation a {
-    display: block;
-    text-decoration: none;
-    color: #999; }
-  .cat-navigation .current_page_item > a,
-  .cat-navigation .current-menu-item > a,
-  .cat-navigation .current_page_ancestor > a,
-  .cat-navigation .current_page_parent > a,
-  .cat-navigation .current-menu-ancestor > a {
-    color: black; }
+#primary-menu > li > .sub-menu > li > ul > li > a {
+  color: black; }
 
 /*--------------------------------------------------------------
 # Accessibility

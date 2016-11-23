@@ -139,28 +139,57 @@
 		ul {
 			float: left;
 			position: absolute;
-			@include rem(top, 37px);
+			@include rem(top, 38px);
 			@include rem(left, -9999px);
 			z-index: 99999;
-
-			ul {
-				@include rem(left, -9999px);
-				top: 0;
-			}
+			background: #f9f9f9;
+			padding: 5px 15px;
 
 			li {
-				@include rem(margin-right, 40px);
-				float: none;
-				display: inline-block;
-				width: auto;
+				float: left;
+				margin: 0;
+				box-sizing: border-box;
+				margin-right: 20px;
 
 				a {
 					width: auto;
 				}
+
+				ul {
+					left: -9999px;
+					top: 42px;
+					position: absolute;
+					width: 100%;
+					background: white;
+
+					li {
+						float: left;
+						width: 25%;
+						margin-bottom: 15px;
+					}
+
+					ul {
+						display: block;
+						background: white;
+						position: relative;
+						float: left;
+						width: 100%;
+						top: auto;
+						left: auto;
+						padding: 0;
+
+						li {
+							width: 100%;
+							margin-bottom: 0;
+						}
+					}
+				}
+
 				
 				&:hover > ul,
 				&.focus > ul {
-					left: 100%;
+					left: 0;
+					width: 100%;
 				}
 			}
 
@@ -179,9 +208,11 @@
 
 		li:hover > ul,
 		li.focus > ul {
-			left: auto;
+			left: 0;
+			width: 100%;
 		}
 	}
+
 	li {
 		float: left;
 		@include rem(margin-right, 25px);
@@ -189,11 +220,11 @@
 		text-transform: uppercase;
 
 		@include media ($medium-screen-up) {
-
 		}
 
 		&:hover > a,
 		&.focus > a {
+			color: black;
 		}
 	}
 	a {
@@ -246,228 +277,16 @@
 	}
 }
 
-/*===========================
-=            SUB            =
-===========================*/
-
-.sub-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
-	background: #f9f9f9;
-	padding: 10px 0;
-
-	position: absolute;
-	margin-top: 48px;
-	z-index: 9999;
-	left: -9999px;
-
-	.menu-sub-container {
-		@include outer-container();
-		@include rem(padding, 0 20px);
-	}
-
-	ul {
-		list-style: none;
-		clear: both;
-		display: block;
-		float: left;
-		width: 100%;
-		margin: 0;
-		z-index: 9999;
-		//left: -9999px;
-	
-		ul {
-			float: left;
-			position: absolute;
-			@include rem(top, 37px);
-			@include rem(left, -9999px);
-			z-index: 99999;
-
-			ul {
-				@include rem(left, -9999px);
-				top: 0;
-			}
-
-			li {
-				@include rem(margin-right, 40px);
-				float: none;
-				display: inline-block;
-				width: auto;
-
-				a {
-					width: auto;
-				}
-				
-				&:hover > ul,
-				&.focus > ul {
-					left: 100%;
-				}
-			}
-
-			a {
-				@include rem(width, 200px);
-			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
-		}
-
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
-		}
-	}
-
-	li {
-		float: left;
-		@include rem(margin-right, 40px);
-		@include rem(line-height, 38px);
-		text-transform: uppercase;
-
-		@include media ($medium-screen-up) {
-
-		}
-
-		&:hover > a,
-		&.focus > a {
-		}
-	}
-	
-	a {
-		display: block;
-		text-decoration: none;
-		color: #999;
-	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a,
-	.current-product-ancestor > a {
-		color: black;
-	}
-
+// target first LI in sub menu to highlight
+#primary-menu > li > .sub-menu > li > a {
+	//color: black;
 }
 
-/*===========================
-=            CAT            =
-===========================*/
+#primary-menu > li > .sub-menu > li > ul > li > a {
+	color: black;
+}
 
-.cat-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
-	background: rgba(255,255,255,0.5);
-	padding: 10px 0;
-
-	position: absolute;
-	margin-top: 106px;
-	z-index: 9999;
-	left: -9999px;
-
-	.menu-cat-container {
-		@include outer-container();
-		@include rem(padding, 0 20px);
-	}
-
-	ul {
-		column-count: 4;
-		column-gap: 1em;
-		
-		list-style: none;
-		clear: both;
-		display: block;
-		float: left;
-		width: 100%;
-		margin: 0;
-		z-index: 9999;
-		//left: -9999px;
-	
-		ul {
-			float: left;
-
-			ul {
-				@include rem(left, -9999px);
-				top: 0;
-			}
-
-			li {
-				@include rem(margin-right, 40px);
-				float: left;
-				width: 100%;
-				display: block;
-
-				a {
-					width: auto;
-				}
-				
-				&:hover > ul,
-				&.focus > ul {
-					left: 100%;
-				}
-			}
-
-			a {
-				@include rem(width, 200px);
-			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
-		}
-
-		li:hover > ul,
-		li.focus > ul {
-			left: auto;
-		}
-	}
-	li {
-		text-transform: uppercase;
-		display: inline-block;
-		margin: 0 0 1em;
-		width: 100%;
-		box-sizing: border-box;
-
-		> a {
-			color: black;
-		}
-
-		.children {
-			column-count: 1;
-			
-			li {
-				margin: 0;
-				
-				a {
-					color: #666666;
-				}
-			}
-		}
-	}
-
-	a {
-		display: block;
-		text-decoration: none;
-		color: #999;
-	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current_page_parent > a,
-	.current-menu-ancestor > a {
-		color: black;
-	}
+// target main sub-menu parent
+#primary-menu > li > .sub-menu > li {
+//	margin-bottom: 15px;
 }
